@@ -2,11 +2,13 @@
 
 #define NUM_LEDS 9
 #define LED_PIN 2
-
+int button = 4;
+int pressed = 0;
 CRGB led[NUM_LEDS];
 
 void setup() {
-  
+  pinMode(button, INPUT);
+  pressed = digitalRead(button);
   FastLED.addLeds<WS2812, LED_PIN, GRB>(led, NUM_LEDS);
 
   for (int i = 0; i < NUM_LEDS; i++){
